@@ -14,7 +14,14 @@ function getdigits(a)
 end
 
 function touppercase(str_)
-    return 0;
+    result = ""
+    for symb in str_
+        if 'a' <= symb <= 'z'  # Проверяем, является ли символ строчной буквой
+            symb = Char(Int(symb) - 32)  # Преобразуем символ в верхний регистр
+        end
+        result *= symb
+    end
+    return result
 end
 
 function firstnorm(vec_::AbstractVector{<:Number})
