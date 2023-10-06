@@ -51,10 +51,10 @@ function infnorm(vec_::AbstractVector{<:Number})
     end
 end
 
-function firstnorm(vec_::AbstractMatrix{<:Number})
-            a = zero(eltype(vec_))  # Норма  с  нулевым значением
+function firstnorm(mat_::AbstractMatrix{<:Number})
+            a = zero(eltype(mat_))  # Норма  с  нулевым значением
     
-        for n in eachcol(vec_)
+        for n in eachcol(mat_)
             buf = sum(n)
             a = max(a, buf)
         end
@@ -62,10 +62,10 @@ function firstnorm(vec_::AbstractMatrix{<:Number})
         return a
     end
 
-function infnorm(vec_::AbstractMatrix{<:Number})
-    a = zero(eltype(vec_))  # Норма с нулевым значением
+function infnorm(mat_::AbstractMatrix{<:Number})
+    a = zero(eltype(mat_))  # Норма с нулевым значением
 
-    for n in eachrow(vec_)
+    for n in eachrow(mat_)
         buf = sum(n)
         a = max(a, buf)
     end
