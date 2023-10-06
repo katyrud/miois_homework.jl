@@ -2,22 +2,22 @@ export getdigits, touppercase, firstnorm, secondnorm, infnorm, isleap, chesscolo
 
 function getdigits(a)
         if a == 0
-        return [0]  # Возвращаем массив с одним элементом - 0
+        return [0]  
     end
-   B = Int[]  # Создаем пустой массив для хранения цифр
+   B = Int[]  
     while a != 0
-        c = mod(a, 10)  # Получаем последнюю цифру числа a с помощью оператора остатка
+        c = mod(a, 10)  # Получаем последнюю цифру числа a 
         push!(B, c)  # Добавляем цифру в массив
-        a = div(a, 10)  # Убираем последнюю цифру числа a с помощью целочисленного деления
+        a = div(a, 10)  # Убираем последнюю цифру числа a 
     end
-    return B  # Возвращаем массив цифр
+    return B  
         end
 
 function touppercase(str_)
     result = ""
     for symb in str_
-        if 'a' <= symb <= 'z'  # Проверяем, является ли символ строчной буквой
-            symb = Char(Int(symb) - 32)  # Преобразуем символ в верхний регистр
+        if 'a' <= symb <= 'z'  
+            symb = Char(Int(symb) - 32) 
         end
         result *= symb
     end
@@ -30,7 +30,7 @@ function firstnorm(vec_::AbstractVector{<:Number})
         n1 += abs(n)
     end
     return n1;
-    
+
 end
 
 function secondnorm(vec_::AbstractVector{<:Number})
@@ -75,9 +75,9 @@ end
 
 
 function isleap(year)
-    if year % 4 == 0  # Проверяем, делится ли год на 4 без остатка
-        if year % 100 == 0  # Проверяем, делится ли год на 100 без остатка
-            if year % 400 == 0  # Проверяем, делится ли год на 400 без остатка
+    if year % 4 == 0  # Проверяем, делится на 4 без остатка
+        if year % 100 == 0  
+            if year % 400 == 0  
                 return true
             else
                 return false
