@@ -91,11 +91,8 @@ end
 end
 
 function chesscolor(cell1, cell2)
-   # Определяем цвет первой клетки
-   color1 = (cell1[1] - 'a' + cell1[2]) % 2 == 0
-    
-   # Определяем цвет второй клетки
-   color2 = (cell2[1] - 'a' + cell2[2]) % 2 == 0
+    color1 = (cell1[1] % 2) == (cell1[2] % 2)
+    color2 = (cell2[1] % 2) == (cell2[2] % 2)
+    return color1 == color2
 
-   return color1 == color2
 end
