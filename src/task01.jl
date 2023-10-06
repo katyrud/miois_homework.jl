@@ -93,4 +93,5 @@ function chesscolor(cell1, cell2)
     color1 = (buf1+cell1[2]) % 2 == 0
     color2 = (buf2+cell2[2]) % 2 == 0
    return color1 == color2
-end
+end #1111
+
