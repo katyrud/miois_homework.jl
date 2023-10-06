@@ -1,16 +1,13 @@
 export getdigits, touppercase, firstnorm, secondnorm, infnorm, isleap, chesscolor
 
 function getdigits(a)
-        if a == 0
-        return [0]  
-    end
-   B = Int[]  
+          B = Int[]  
     while a != 0
         c = mod(a, 10)  # Получаем последнюю цифру числа a 
         push!(B, c)  # Добавляем цифру в массив
         a = div(a, 10)  # Убираем последнюю цифру числа a 
     end
-    return B  
+    return B[end:-1:1]
         end
 
 function touppercase(str_)
@@ -47,8 +44,8 @@ function infnorm(vec_::AbstractVector{<:Number})
         if n > n3 
             n3=n
         end
-           return n3;
-    end
+           end
+    return n3;
 end
 
 function firstnorm(mat_::AbstractMatrix{<:Number})
@@ -91,8 +88,9 @@ end
 end
 
 function chesscolor(cell1, cell2)
-    color1 = (cell1[1] % 2) == (cell1[2] % 2)
-    color2 = (cell2[1] % 2) == (cell2[2] % 2)
-    return color1 == color2
-
+    buf1 = cell1[1] - 'a'+1
+    buf2 = cell2[1] - 'a'+1
+    color1 = (buf1+cell1[2]) % 2 == 0
+    color2 = (buf2+cell2[2]) % 2 == 0
+   return color1 == color2
 end
